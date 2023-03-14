@@ -84,7 +84,7 @@ export default function EditForm({ book }) {
             id="lws-price"
             name="price"
             value={price}
-            onChange={(e) => setPrice(parseInt(e.target.value))}
+            onChange={(e) => setPrice(parseFloat(e.target.value))}
           />
         </div>
 
