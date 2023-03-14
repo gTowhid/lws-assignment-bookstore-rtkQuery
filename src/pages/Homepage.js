@@ -1,9 +1,11 @@
 import BooksList from '../components/BooksList';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { filterSelected } from '../features/filter/filterSlice';
 
 export default function Homepage() {
   const dispatch = useDispatch();
+  const { filter } = useSelector((state) => state.filter);
 
   return (
     <main className="py-12 px-6 2xl:px-6 container">
@@ -13,13 +15,21 @@ export default function Homepage() {
 
           <div className="flex items-center space-x-4">
             <button
-              className="lws-filter-btn active-filter"
+              className={
+                filter === 'all'
+                  ? 'lws-filter-btn active-filter'
+                  : 'lws-filter-btn'
+              }
               onClick={() => dispatch(filterSelected('all'))}
             >
               All
             </button>
             <button
-              className="lws-filter-btn"
+              className={
+                filter === 'featured'
+                  ? 'lws-filter-btn active-filter'
+                  : 'lws-filter-btn'
+              }
               onClick={() => dispatch(filterSelected('featured'))}
             >
               Featured
