@@ -71,7 +71,8 @@ export default function AddBook() {
                   type="number"
                   id="lws-price"
                   name="price"
-                  onChange={(e) => setPrice(parseInt(e.target.value))}
+                  step="0.01"
+                  onChange={(e) => setPrice(parseFloat(e.target.value))}
                 />
               </div>
 
